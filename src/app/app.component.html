@@ -1,0 +1,12 @@
+<div>
+  <p>Email</p>
+  <input />
+  <p>Password</p>
+  <input />
+  <button>Send</button>
+</div>
+<mat-toolbar color="primary">
+  <mat-icon>local_fire_department</mat-icon>
+  <span>Kanban Fire</span>
+</mat-toolbar>
+<app-notes *ngFor="let notes of todo" [notes]="notes"></app-notes>

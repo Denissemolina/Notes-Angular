@@ -1,0 +1,6 @@
+<mat-card class="item" *ngIf="notes" (dblclick)="edit.emit(notes)">
+  <h2>{{ notes.title }}</h2>
+  <p>
+    {{ notes.description }}
+  </p>
+</mat-card>
