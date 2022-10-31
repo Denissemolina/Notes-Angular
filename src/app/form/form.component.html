@@ -1,0 +1,28 @@
+<div>
+  <!-- login its a variable :o -->
+  <form #login="ngForm" (ngSubmit)="submit(login)">
+    <input
+      #email="ngModel"
+      name="email"
+      placeholder="Email"
+      ngModel
+      required
+    /><br />
+    <input
+      #pass="ngModel"
+      name="password"
+      placeholder="Password"
+      ngModel
+      minlength="6"
+      maxlength="30"
+      required
+    /><br />
+    <p *ngIf="email.touched && email.invalid" class="alert_invalid">
+      Invalid email
+    </p>
+    <p *ngIf="pass.touched && pass.invalid" class="alert_invalid">
+      Invalid password
+    </p>
+    <button type="submit">Submit</button>
+  </form>
+</div>
