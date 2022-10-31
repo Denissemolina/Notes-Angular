@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "notes-angular-91b87": {
+      "hosting": {
+        "notes": [
+          "notes-angular-91b87"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "notes-angular-91b87"
+  }
+}

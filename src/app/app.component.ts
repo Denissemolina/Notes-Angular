@@ -13,8 +13,8 @@ export class AppComponent {
       description: 'Go to the store and buy milk'
     },
     {
-      title: 'Create a Kanban app',
-      description: 'Using Firebase and Angular create a Kanban app!'
+      title: 'Another example',
+      description: 'Using Firebase and Angular'
     }
   ];
 }

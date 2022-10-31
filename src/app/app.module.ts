@@ -1,53 +1,53 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //import { AngularFireModule } from '@angular/fire';
-//import { AngularFirestoreModule } from  '@angular/fire/firestore';
+import {provideFirestore,getFirestore } from  '@angular/fire/firestore';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NotesComponent } from './notes/notes.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotesComponent
+    NotesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     MatToolbarModule,
+    MatCardModule,
+    MatButtonModule, 
     MatIconModule,
-    MatCardModule
-    // AngularFireModule.initializeApp({
-    //   apiKey: "AIzaSyCr_HzzmrBRdzukTIwrDPgk79lHiTtubao",
-    //   authDomain: "notes-angular-91b87.firebaseapp.com",
-    //   projectId: "notes-angular-91b87",
-    //   storageBucket: "notes-angular-91b87.appspot.com",
-    //   messagingSenderId: "512790832162",
-    //   appId: "1:512790832162:web:c0c635a12086126f3e567b"
-    // }),
-    // AngularFirestoreModule
-    // Import the functions you need from the SDKs you need
-// // // import { initializeApp } from "firebase/app";
-// // // // TODO: Add SDKs for Firebase products that you want to use
-// // // // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // // // Your web app's Firebase configuration
-// // // const firebaseConfig = {
-// // //   apiKey: "AIzaSyCr_HzzmrBRdzukTIwrDPgk79lHiTtubao",
-// // //   authDomain: "notes-angular-91b87.firebaseapp.com",
-// // //   projectId: "notes-angular-91b87",
-// // //   storageBucket: "notes-angular-91b87.appspot.com",
-// // //   messagingSenderId: "512790832162",
-// // //   appId: "1:512790832162:web:c0c635a12086126f3e567b"
-// // // };
-
-// // // // Initialize Firebase
-// // // const app = initializeApp(firebaseConfig);
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions()),
+    provideMessaging(() => getMessaging()),
+    providePerformance(() => getPerformance()),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideStorage(() => getStorage()),
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,UserTrackingService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
